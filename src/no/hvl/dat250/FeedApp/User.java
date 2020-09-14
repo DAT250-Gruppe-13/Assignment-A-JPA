@@ -4,26 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Entity
 @Data
+@Table(name="users")
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	private int id;
+	private String id;
 	private String name;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String email;
 	private boolean admin;
 	
-	@OneToMany
-	private List<Poll> creditCardList = new ArrayList<Poll>();
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	private List<Poll> pollList = new ArrayList<Poll>();
 
 }
