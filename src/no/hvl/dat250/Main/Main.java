@@ -1,14 +1,16 @@
 package no.hvl.dat250.Main;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
-import no.hvl.dat250.FeedApp.Poll;
-import no.hvl.dat250.FeedApp.User;
-import no.hvl.dat250.FeedApp.Vote;
+import no.hvl.dat250.Model.Poll;
+import no.hvl.dat250.Model.User;
+import no.hvl.dat250.Model.Vote;
 
 public class Main {
 	
@@ -27,13 +29,20 @@ public class Main {
         Vote vote = createVote(user);
         
         vote.setPoll(poll);
-        
+       
 
         em.persist(user);
         em.persist(poll);
         em.persist(vote);
 
         em.getTransaction().commit();
+        
+        Query q = em.createQuery("select t from User t");
+        List<User> pollList = q.getResultList();
+        for (User p : pollList) {
+            System.out.println(p.getId() + " " + p.getName() + " " + p.getEmail());
+        }
+        
         em.close();
 
 	}

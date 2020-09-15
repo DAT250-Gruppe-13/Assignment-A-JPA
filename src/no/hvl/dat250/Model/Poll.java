@@ -1,4 +1,4 @@
-package no.hvl.dat250.FeedApp;
+package no.hvl.dat250.Model;
 
 import java.util.ArrayList;
 import java.sql.Date;

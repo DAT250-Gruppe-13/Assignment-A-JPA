@@ -1,4 +1,4 @@
-package no.hvl.dat250.FeedApp;
+package no.hvl.dat250.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

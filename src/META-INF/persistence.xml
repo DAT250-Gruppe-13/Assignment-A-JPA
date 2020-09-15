@@ -5,9 +5,9 @@
     <persistence-unit name="feedback" transaction-type="RESOURCE_LOCAL">
 
 
-        <class>no.hvl.dat250.FeedApp.Poll</class>
-        <class>no.hvl.dat250.FeedApp.Vote</class>
-        <class>no.hvl.dat250.FeedApp.User</class>
+        <class>no.hvl.dat250.Model.Poll</class>
+        <class>no.hvl.dat250.Model.Vote</class>
+        <class>no.hvl.dat250.Model.User</class>
     
 
         <properties>
@@ -18,7 +18,7 @@
             <property name="javax.persistence.jdbc.password" value="feedback" />
 
             <!-- EclipseLink should create the database schema automatically -->
-            <property name="eclipselink.ddl-generation" value="create-tables" />
+          
             <property name="eclipselink.ddl-generation.output-mode"
                 value="database" />
         </properties>

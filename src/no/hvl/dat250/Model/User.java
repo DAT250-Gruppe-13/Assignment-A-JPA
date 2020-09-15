@@ -1,4 +1,4 @@
-package no.hvl.dat250.FeedApp;
+package no.hvl.dat250.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,7 @@ public class User {
 	private String name;
 	private String phoneNumber;
 	private String email;
+	private String password;
 	private boolean admin;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
